@@ -1,0 +1,5 @@
+<?php
+
+echo "THIS IS THE HOMEPAGE MATE, EXPLORE ABOVE AND SIGN IN";
+
+?>

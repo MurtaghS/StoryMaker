@@ -1,0 +1,234 @@
+* {
+   font-family: sans-serif;
+   font-size: 16px;
+}
+*[class^="btn"]{
+	background-color: #5aac56;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+*[class^="btn"]:hover{
+	background-color: #8dcf8a;
+	cursor: pointer;
+}
+li a{
+	color: black;
+}
+li a:hover{
+	background-color: black;
+}
+.navbar{
+   background-color: #5aac56;
+   height: 50px;
+   border-radius: 0px;
+   border: 0px;
+}
+.navbar h1{
+	font-size: 22px;
+	margin: 0;
+	margin-top: 11px;
+}
+.top-nav-list li:first-of-type{
+	border-left: 1px solid black;
+}
+.top-nav-list li a{
+	color: black;
+	border-right: 1px solid black;
+}
+#title-row{
+	margin: 20px;
+}
+#title-recipe{
+	width: 100%;
+}
+#drawing-app-row{
+	min-height: 402px;
+}
+#step-info{
+	max-width: 402px;
+	margin-left: 8.5%;
+}
+#step-info p{
+	display: inline-block;
+	width: 33.2%;
+	text-align: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+}
+#drawing-buttons{
+	height: 402px;
+	padding: 0;
+}
+#drawing-buttons ul{
+	overflow: auto;
+}
+#drawing-buttons ul li{
+	width: 100%;
+	float: right;
+	text-align: right;
+	margin-bottom: 10px;
+	padding: 5px 5px 5px 0;
+	vertical-align: middle;
+}
+#brush-box{
+	overflow:auto;
+	padding-bottom:20px;
+}
+#brush-box p{
+	text-align: center;
+}
+.brush-size{
+	width: 50%;
+	height: 25%;
+	float: left;
+	font-size: 12px;
+	background-color: #5aac56;
+	border: 1px solid black;
+	text-align: center;
+}
+.brush-size:hover{
+	cursor: pointer;
+	background-color: #8dcf8a;
+}
+#drawing-canvas-area{
+	min-height: 402px;
+	padding: 0px;
+}
+#drawing-canvas-area p{
+	display: inline-block;
+}
+#canvas-recipe{
+	border: 1px solid black;
+}
+#below-canvas{
+	width: 100%;
+	padding: 5px;
+}
+#text-recipe{
+	width: 80%;
+	padding: 0 0 0 0;
+	margin: 10px 5% 10px 0;
+}
+#drawing-color{
+	margin-left: 10px;
+}
+#flow-chat-area{
+	background-color: red;
+}
+#flow-chart-area>p{
+	text-align: center;
+	background-color: #5aac56;
+	padding: 5px;
+}
+#flow-chart-area>p:hover{
+	background-color: #8dcf8a;
+	cursor: pointer;
+}
+#flow-chart{
+	min-height: 500px;
+	border: 1px solid black;
+}
+#below-chart p{
+	display: inline-block;
+	width: 25%;
+	background-color: #5aac56;
+	text-align: center;
+	padding: 5px;
+}
+#below-chart p:first-of-type{
+	margin-right: 50%;
+}
+#below-chart p:hover{
+	background-color: #8dcf8a;
+	cursor: pointer;
+}
+#preview-row{
+	position:absolute;
+    left:0;
+    right:0;
+    margin: 0 auto;
+    z-index: 1000;
+    background-color: white;
+    width: 100%;
+    max-width: 1000px;
+}
+#preview-left, #preview-right{
+	height: 550px;
+	text-align: center;
+	padding-top: 10px;
+}
+.preview-left-text, .preview-right-text{
+	max-width: 500px;
+}
+#preview-canvas-left, #preview-canvas-right{
+	margin-top: 5px;
+	border: 1px solid black;
+}
+.flow-step-box{
+	margin: 20px auto;
+	width: 25%;
+	display: block;
+}
+
+@media screen and (max-width: 991px){
+	#step-info{
+		margin-left: 0;
+		max-width: 100%;
+		margin-bottom: 5px;
+	}
+	#step-info p{
+		width: 33.3333%;
+	}
+	#drawing-buttons{
+		height: 130px;
+		text-align: center;
+	}
+	#drawing-buttons ul{
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+	}
+	#drawing-buttons ul li{
+		width: 25%;
+		text-align: center;
+		float: left;
+		padding: 5px 0 5px 0;
+		margin-bottom: 0;
+		border-right: 1px solid black;
+		height: 30px;
+	}
+	#brush-box{
+		width: 100%;
+		float: left;
+	}
+	#brush-box p{
+		display: none;
+	}
+	.brush-size{
+		width: 25%;
+		height: 25px;
+	}
+	#drawing-canvas-area{
+		margin-top: 10px;
+		text-align: center;
+	}
+	#canvas-recipe{
+		margin-top: 2%;
+	}
+	.overlay{
+		position: fixed;
+	}
+}
+.overlay{
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.8);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	bottom: 0;
+}
+.hidden{
+	display: none;
+}
