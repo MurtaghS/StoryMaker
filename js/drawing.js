@@ -7,7 +7,8 @@ var stepNumber = 0;
 var leftcounter = 0;
 var rightcounter = 1;
 
-function AlgorithmStep(description)
+//Object of a step in the story
+function StoryStep(description)
 {
 	var descrption;
 	var editArray;
@@ -15,46 +16,48 @@ function AlgorithmStep(description)
 	
 	this.description = description;
 	this.editArray = new Array();
-	this.editStep = -1;
+	this.editStep = -1;	//Begin at -1 as we push the blank frame to make it 0
 }
 
 $(function(){
-	ctx = document.getElementById('canvas-recipe').getContext('2d');
+	ctx = document.getElementById('canvas-story').getContext('2d');
 	ctx.lineJoin = 'round';
 
 	$('.btn-next').css('visibility', 'hidden');
-	$('.btn-prev').css('visibility', 'hidden');
+	$('.btn-prev').css('visibility', 'hidden');	//Hides the object but the space remains on the page
 
-	$('#drawing-color').css('background-color', '#000000');
+	$('#drawing-color').css('background-color', '#000000');	//Default the color picker to black
 
 	//Begin to draw
-	$('#canvas-recipe').mousedown(function(e){
+	$('#canvas-story').mousedown(function(e){
         mousePressed = true;
         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
     });
 
 	//Draws when the mouse is moved if mouse is held down
-    $('#canvas-recipe').mousemove(function(e){
+    $('#canvas-story').mousemove(function(e){
         if (mousePressed) {
             Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
         }
     });
 
 	//User let go of mouse so we stop drawing
-    $('#canvas-recipe').mouseup(function(e){
+    $('#canvas-story').mouseup(function(e){
         if (mousePressed) {
             mousePressed = false;
             canvasPush();
         }
     });
 
+    //Creating the 16 divs which represent a brush size
     for (var i=0; i<16; i++){
 		$('<div class="brush-size"></div>').appendTo('#brush-box');
 	}
 
+	//This counter determines the value in the box
 	var counter = 1;
 	$('#brush-box').children('div').each(function(){
-		$(this).text(counter); // "this" is the current element in the loop
+		$(this).text(counter); 	//"this" is the current element in the loop
 		counter += 2;
 		});
 	
@@ -77,6 +80,7 @@ $(function(){
 		canvasRedo();
 	});
 
+	//Fills the canvas based on the color in the color picker, it also adds it to the edit array so it can be undone
 	$('.btn-fill').click(function(){
 		ctx.fillStyle=$('#drawing-color').css('background-color');
 		ctx.fillRect(0, 0, 400, 400);
@@ -86,13 +90,14 @@ $(function(){
 	//Adds a new step to the program
 	$('.btn-new').click(function(){
 		stepNumber = drawingArray.length;	//We want to jump to the newest step
-		document.getElementById('text-recipe').value = '';	//Adjust step text below drawing area
+		document.getElementById('text-story').value = '';	//Reset step text below drawing area
 		blankFrame();
 		initialPush();	//Need to push the white frame so the user can revert back to a blank canvas
 		changeStepText();
 		updateChart();
 	});
 
+	//Can only click next if we arent at the end of the drawing array
 	$('.btn-next').click(function(){
 		if (stepNumber < (drawingArray.length - 1))
 		{
@@ -102,7 +107,7 @@ $(function(){
 		}
 	});
 	
-	//Go to previous step in the algorithm and display it if not at the first step
+	//Go to previous step in the algorithm and display it we are not at the first step
 	$('.btn-prev').click(function(){
 		if (stepNumber > 0)
 		{
@@ -112,6 +117,7 @@ $(function(){
 		}
 	});
 
+	//Delete the step unless its the first step of the program
 	$('.btn-delete').click(function(){
 		if (stepNumber != 0)
 		{
@@ -119,14 +125,15 @@ $(function(){
 		}
 	});
 
+	//Preview the story
 	$('.btn-preview').click(function(){
-		previewAlgorithm();
+		previewStory();
 	});
 
 	//When the user types something, save it to the current step description text
-	$('#text-recipe').focusout(function()
+	$('#text-story').focusout(function()
 	{
-		drawingArray[stepNumber].description = document.getElementById('text-recipe').value;
+		drawingArray[stepNumber].description = document.getElementById('text-story').value;
 	});
 
 
@@ -164,9 +171,9 @@ $(function(){
 });
 
 function initialPush(){
-	var step = new AlgorithmStep(
-	document.getElementById('text-recipe').value
-	);	//Change undo-btn to recipe description when added
+	var step = new StoryStep(
+	document.getElementById('text-story').value
+	);	//Change undo-btn to story description when added
 	
 	drawingArray.push(step);
 	canvasPush();
@@ -190,13 +197,15 @@ function Draw(x, y, isDown) {
     lastY = y;
 }
 
+//Display contents of a step
 function displayStep(){
 	var canvasPic = new Image();
         canvasPic.src = drawingArray[stepNumber].editArray[drawingArray[stepNumber].editStep];	//Image source is last edit in the object array
         canvasPic.onload = function () { ctx.drawImage(canvasPic, 0, 0); }	//Draw the image to the canvas
-	document.getElementById('text-recipe').value = drawingArray[stepNumber].description;		//Load the description
+	document.getElementById('text-story').value = drawingArray[stepNumber].description;		//Load the description
 }
 
+//Changes the step text along the top and also modifies the visibility of next/prev buttons
 function changeStepText(){
 	$('.step-counter').text('Step: ' + (stepNumber + 1));	//Show current step number above drawing area
 	
@@ -225,7 +234,7 @@ function canvasPush() {
 		drawingArray[stepNumber].editArray.length = drawingArray[stepNumber].editStep; 
 	}
 	
-	drawingArray[stepNumber].editArray.push(document.getElementById('canvas-recipe').toDataURL());
+	drawingArray[stepNumber].editArray.push(document.getElementById('canvas-story').toDataURL());
 }
 
 function canvasUndo() {
@@ -250,7 +259,7 @@ function canvasRedo() {
     }
 }
 
-function previewAlgorithm(){
+function previewStory(){
 	$('.overlay').removeClass('hidden');
 	$('#preview-row').removeClass('hidden');
 	updatePreview();

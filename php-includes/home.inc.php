@@ -1,5 +1,5 @@
 <?php
 
-echo "THIS IS THE HOMEPAGE MATE, EXPLORE ABOVE AND SIGN IN";
+echo "This is the homepage, click one of the links above to begin using the site.";
 
 ?>

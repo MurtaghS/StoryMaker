@@ -3,7 +3,7 @@
         <div class="navbar navbar-top">
             <div class="container">
                 <ul class="nav navbar-nav navbar-left">
-                    <h1>Easy Frog</h1>
+                    <h1>Story Maker</h1>
                 </ul>
             
                 <ul class="nav navbar-nav navbar-right top-nav-list hidden">

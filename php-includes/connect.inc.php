@@ -2,8 +2,8 @@
 
 $dbConnect = array(
     'server' => 'localhost',
-    'user' => 'root',
-    'pass' => 'imtjoipadl18',
+    'user' => '',
+    'pass' => '',
     'name' => 'movies'
 );
 

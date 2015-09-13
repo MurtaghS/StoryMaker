@@ -12,7 +12,7 @@ echo "<div class='row hidden' id='preview-row'>";
 	echo "</div>";
 echo "</div>";
 echo "<div class='row' id='title-row'>";
-	echo "<input id='title-recipe' type='text' placeholder='Enter title here!'></input>";
+	echo "<input id='title-story' type='text' placeholder='Enter title here!'></input>";
 	echo "</div>";
 	echo "<div class='row' id='drawing-app-row'>";
 	echo "<div id='step-info'>";
@@ -35,11 +35,11 @@ echo "<div class='row' id='title-row'>";
 	echo "</div>";//End of drawing buttons
 
 	echo "<div class='col-md-5 col-xs-12 col-xs-offset-0 col-md-offset-0' id='drawing-canvas-area'>";
-	echo "<canvas id='canvas-recipe' width='400px' height='400px'></canvas>";
+	echo "<canvas id='canvas-story' width='400px' height='400px'></canvas>";
 		echo "<div id='below-canvas'>";
 			echo "<p>Choose Colour:</p>";
 			echo "<input id='drawing-color' class='color {required:false}''></input>";
-			echo "<textarea id='text-recipe' type='text' rows='4' placeholder='Enter step text here! 200 char limit' maxlength='200'></textarea>";
+			echo "<textarea id='text-story' type='text' rows='4' placeholder='Enter step text here! 200 char limit' maxlength='200'></textarea>";
 		echo "</div>"; //End of colour picker and text div
 	echo "</div>"; //End of drawing canvas area div
 	

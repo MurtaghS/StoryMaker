@@ -38,7 +38,7 @@ li a:hover{
 #title-row{
 	margin: 20px;
 }
-#title-recipe{
+#title-story{
 	width: 100%;
 }
 #drawing-app-row{
@@ -97,14 +97,14 @@ li a:hover{
 #drawing-canvas-area p{
 	display: inline-block;
 }
-#canvas-recipe{
+#canvas-story{
 	border: 1px solid black;
 }
 #below-canvas{
 	width: 100%;
 	padding: 5px;
 }
-#text-recipe{
+#text-story{
 	width: 80%;
 	padding: 0 0 0 0;
 	margin: 10px 5% 10px 0;
@@ -212,7 +212,7 @@ li a:hover{
 		margin-top: 10px;
 		text-align: center;
 	}
-	#canvas-recipe{
+	#canvas-story{
 		margin-top: 2%;
 	}
 	.overlay{
