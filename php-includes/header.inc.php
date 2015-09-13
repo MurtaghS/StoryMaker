@@ -1,18 +1,25 @@
     <body>
     <div class="overlay hidden"></div>
-        <div class="navbar navbar-top">
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="main-navbar" role="navigation">
             <div class="container">
-                <ul class="nav navbar-nav navbar-left">
-                    <h1>Story Maker</h1>
-                </ul>
-            
-                <ul class="nav navbar-nav navbar-right top-nav-list hidden">
-                    <li><a href="index.php?page=create">Create</a></li>
-                    <li><a href="index.php?page=browse">Browse</a></li>
-                    <li><a href="index.php?page=profile">Profile</a></li>
-                </ul>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.php?page=home" class="navbar-brand">Story Maker</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.php?page=create">Create</a></li>
+                        <li><a href="index.php?page=browse">Browse</a></li>
+                        <li><a href="index.php?page=profile">Profile</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </nav>
         
         <!--If they are not running JavaScript-->
         <noscript>
