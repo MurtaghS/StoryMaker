@@ -23,6 +23,12 @@ li a:hover{
    border-radius: 0px;
    border: 0px;
 }
+.navbar li{
+	border-right: 1px solid black;
+}
+.navbar li:first-of-type{
+	border-left: 1px solid black;
+}
 #navbar-collapse > ul > li > a, .navbar-default .navbar-brand{
 	color: black;
 }
