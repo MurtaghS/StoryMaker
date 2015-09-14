@@ -23,17 +23,11 @@ li a:hover{
    border-radius: 0px;
    border: 0px;
 }
-.navbar h1{
-	font-size: 22px;
-	margin: 0;
-	margin-top: 11px;
-}
-.top-nav-list li:first-of-type{
-	border-left: 1px solid black;
-}
-.top-nav-list li a{
+#navbar-collapse > ul > li > a, .navbar-default .navbar-brand{
 	color: black;
-	border-right: 1px solid black;
+}
+#navbar-collapse > ul > li > a:hover{
+	background-color: #8dcf8a;
 }
 #title-row{
 	margin: 20px;
@@ -169,7 +163,6 @@ li a:hover{
 	width: 25%;
 	display: block;
 }
-
 @media screen and (max-width: 991px){
 	#step-info{
 		margin-left: 0;
@@ -217,6 +210,18 @@ li a:hover{
 	}
 	.overlay{
 		position: fixed;
+	}
+}
+@media screen and (max-width: 767px){
+	.nav>li{
+		display: inline-block;
+	}
+	.nav{
+		float: right;
+		margin-right: 5px;
+	}
+	#title-row{
+		margin-top: 40px;
 	}
 }
 .overlay{

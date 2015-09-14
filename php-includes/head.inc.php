@@ -8,8 +8,8 @@
         <!--CSS FILES-->
         
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> <!--Bootstrap CSS-->
-        <link rel="stylesheet" href="css/style.css"/> <!-- My CSS file for all pages-->
         <link rel="stylesheet" href="css/reset.css"/> <!-- My CSS file for all pages-->
+        <link rel="stylesheet" href="css/style.css"/> <!-- My CSS file for all pages-->
         
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

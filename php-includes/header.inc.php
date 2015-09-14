@@ -1,6 +1,6 @@
     <body>
     <div class="overlay hidden"></div>
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="main-navbar" role="navigation">
+        <nav class="navbar navbar-default navbar-static-top" id="main-navbar" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -13,9 +13,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.php?page=create">Create</a></li>
-                        <li><a href="index.php?page=browse">Browse</a></li>
-                        <li><a href="index.php?page=profile">Profile</a></li>
+                        <li><a class="btn-create" href="index.php?page=create">Create</a></li>
+                        <li><a class="btn-browse" href="index.php?page=browse">Browse</a></li>
+                        <li><a class="btn-profile" href="index.php?page=profile">Profile</a></li>
                     </ul>
                 </div>
             </div>
