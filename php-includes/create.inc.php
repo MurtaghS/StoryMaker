@@ -1,14 +1,15 @@
 <?php
 echo "<div class='row hidden' id='preview-row'>";
+	echo "<div class='preview-title'></p></div>";
 	echo "<div id='preview-left' class='col-sm-12 col-md-6'>";
 		echo "<p class='btn-preview-prev'>Previous</p>";
 		echo "<canvas id='preview-canvas-left' width='400px' height='400px'></canvas>";
-		echo "<p class='preview-left-text'>TEXT GOES HERE</p>";
+		echo "<p class='preview-left-text'></p>";
 	echo "</div>";
 	echo "<div id='preview-right' class='col-sm-12 col-md-6'>";
 		echo "<p class='btn-preview-next'>Next</p>";
 		echo "<canvas id='preview-canvas-right' width='400px' height='400px'></canvas>";
-		echo "<p class='preview-right-text'>TEXT GOES HERE</p>";
+		echo "<p class='preview-right-text'></p>";
 	echo "</div>";
 echo "</div>";
 echo "<div class='row' id='title-row'>";

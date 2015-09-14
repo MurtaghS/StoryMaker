@@ -227,6 +227,7 @@ function changeStepText(){
 	}
 }
 
+//Push canvas image onto the array and modigfy edit step value
 function canvasPush() {
 	drawingArray[stepNumber].editStep++;
     if (drawingArray[stepNumber].editStep < drawingArray[stepNumber].editArray.length)
@@ -278,12 +279,15 @@ function deleteStep(){
 function updatePreview(){
 	var ctxleft = document.getElementById('preview-canvas-left').getContext("2d");	
 	var ctxright = document.getElementById('preview-canvas-right').getContext("2d");	//2 canvas represent the steps on left/right of page
+	var title = $('#title-story').val();
 	var lefttext;
 	var righttext;
 	var leftimage = new Image();
 	var rightimage = new Image();
-	var endimage = "images/end.jpg"
+	var endimage = "images/end.jpg";
 	
+	$('.preview-title p').text(title);
+
 	if (leftcounter == drawingArray.length)	//Left counter is the end so display the end image
 	{
 		leftimage.src = endimage;
