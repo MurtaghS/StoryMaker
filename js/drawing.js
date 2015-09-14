@@ -279,7 +279,15 @@ function deleteStep(){
 function updatePreview(){
 	var ctxleft = document.getElementById('preview-canvas-left').getContext("2d");	
 	var ctxright = document.getElementById('preview-canvas-right').getContext("2d");	//2 canvas represent the steps on left/right of page
-	var title = $('#title-story').val();
+	var title;
+
+	//Returns true if text has been entered into the title
+	if ($('#title-story').val()){
+		title = $('#title-story').val();
+	} else{
+		title = "PLEASE ENTER A TITLE FOR YOUR STORY!";
+	}
+	
 	var lefttext;
 	var righttext;
 	var leftimage = new Image();

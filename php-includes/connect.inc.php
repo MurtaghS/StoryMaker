@@ -4,7 +4,7 @@ $dbConnect = array(
     'server' => 'localhost',
     'user' => '',
     'pass' => '',
-    'name' => 'movies'
+    'name' => ''
 );
 
 $db = new mysqli(

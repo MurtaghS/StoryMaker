@@ -22,9 +22,7 @@ li a:hover{
    height: 50px;
    border-radius: 0px;
    border: 0px;
-}
-.navbar-static-top{
-	z-index: 998;
+   z-index: 997;
 }
 .navbar li{
 	border-right: 1px solid black;
