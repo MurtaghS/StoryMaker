@@ -130,6 +130,10 @@ $(function(){
 		previewStory();
 	});
 
+	$('.btn-upload').click(function(){
+		uploadToDB();
+	});
+
 	//When the user types something, save it to the current step description text
 	$('#text-story').focusout(function()
 	{
@@ -173,7 +177,7 @@ $(function(){
 function initialPush(){
 	var step = new StoryStep(
 	document.getElementById('text-story').value
-	);	//Change undo-btn to story description when added
+	);
 	
 	drawingArray.push(step);
 	canvasPush();
@@ -235,7 +239,7 @@ function canvasPush() {
 		drawingArray[stepNumber].editArray.length = drawingArray[stepNumber].editStep; 
 	}
 	
-	drawingArray[stepNumber].editArray.push(document.getElementById('canvas-story').toDataURL());
+	drawingArray[stepNumber].editArray.push(document.getElementById('canvas-story').toDataURL("image/png"));
 }
 
 function canvasUndo() {
@@ -267,7 +271,7 @@ function previewStory(){
 }
 
 function deleteStep(){
-	drawingArray.splice(stepNumber, 1);
+	drawingArray.splice(stepNumber, 1);	//Where to splice and how many elements to remove
 	stepNumber--;
 	displayStep();
 	$('#flow-chart').empty();	//Clear out the flow chart box
@@ -350,7 +354,7 @@ function updateChart(){
 
 //Loop through algorithm array and add the divs back to the flowchart area after one is deleted
 function refreshChart(){
-	for (i=0; i<algorithmArray.length; i++)	//Iterate through all array objects
+	for (i=0; i<drawingArray.length; i++)	//Iterate through all array objects
 	{
 		$('<div></div>')
 			.text('Step ' + (i + 1))
@@ -388,4 +392,23 @@ function flowchartUpdate(){
 	{
 		//$('.steppreview').hide();	//Hide step preview when we mouse out
 	});
+}
+
+//Canvas images already get stored at base64
+function uploadToDB()
+{
+	$dataURL = drawingArray[0].editArray[drawingArray[0].editStep];
+	$finalImg = $dataURL.replace(/^data:image\/(png|jpeg);base64,/, "");
+	$.ajax({
+        url: "ajax/post-story.ajax.php",
+        type: "POST",
+        data: {
+            'data': $finalImg
+        }, // End data
+        'beforeSend' : function() {
+        }, // End beforeSend callback
+        'success' : function(response) {
+        } // End success callback
+    }); // End AJAX
+    console.log($finalImg);
 }
