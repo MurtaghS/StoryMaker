@@ -3,11 +3,9 @@
 function showIdeas(){
 	global $db;
 	$output = "";
-	$idea = "";
-	$id;
 
-	$stmt = $db->prepare('SELECT * FROM `ideas` ORDER BY `idea_id` DESC');
-	$stmt->bind_result($id, $idea);
+	$stmt = $db->prepare("SELECT * FROM `ideas` ORDER BY `idea_id` DESC");
+	$stmt->bind_result($idea_id, $idea);
 	$stmt->execute();
 
 	while ($stmt->fetch()){
@@ -15,7 +13,7 @@ function showIdeas(){
 		$output .= $idea;
 		$output .= "</li>";
 	}
-
+	$stmt->close();
 	return $output;
 }
 
