@@ -36,10 +36,24 @@ li a:hover{
 #header-collapse ul li a:hover{
 	background-color: #8dcf8a;
 }
+#form-login{
+	background-color: #5aac56;
+	text-align: center;
+	padding: 10px;
+	border-radius: 4px;
+}
+#form-login *{
+	width: 100%;
+}
+#form-login input{
+	margin-bottom: 30px;
+	margin-top: 4px;
+}
 #title-row{
 	margin: 20px;
 }
 #title-story{
+	font-size: 24px;
 	width: 100%;
 }
 #drawing-app-row{
@@ -154,10 +168,10 @@ li a:hover{
     max-width: 1000px;
 }
 .preview-title{
-	border: 1px solid black;
-	font-size: 22px;
+	font-size: 24px;
 	margin: 10px;
 	padding: 5px;
+	text-align: center;
 }
 #preview-left, #preview-right{
 	height: 550px;

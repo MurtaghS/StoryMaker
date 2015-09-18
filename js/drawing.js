@@ -173,6 +173,11 @@ $(function(){
 			$(this).css('border', 'none');
 	});
 
+	$('.idea-list li').click(function(){
+		$val = $(this).text();
+		$('#title-story').val($val);
+	});
+
 	blankFrame();
 	initialPush();
 	changeStepText();

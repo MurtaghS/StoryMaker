@@ -9,7 +9,7 @@
                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
                             Ideas
                         </button>
-                        <ul class="dropdown-menu drop-up" role="menu">
+                        <ul class="dropdown-menu drop-up idea-list" role="menu">
                             <?php 
                                 echo $ideaList;
                             ?>
