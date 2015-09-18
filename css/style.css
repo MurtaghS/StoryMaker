@@ -24,16 +24,16 @@ li a:hover{
    border: 0px;
    z-index: 997;
 }
-.navbar li{
+.navbar-header li{
 	border-right: 1px solid black;
 }
-.navbar li:first-of-type{
+.navbar-header li:first-of-type{
 	border-left: 1px solid black;
 }
-#navbar-collapse > ul > li > a, .navbar-default .navbar-brand{
+#header-collapse ul li a, .navbar-default .navbar-brand{
 	color: black;
 }
-#navbar-collapse > ul > li > a:hover{
+#header-collapse ul li a:hover{
 	background-color: #8dcf8a;
 }
 #title-row{
@@ -176,6 +176,27 @@ li a:hover{
 	width: 25%;
 	display: block;
 }
+.navbar{
+	min-height: 34px;
+}
+.navbar-fixed-bottom{
+	height: 34px;
+}
+.btn-group.open > ul{
+	min-width: 400px;
+}
+.drop-up {
+    top: auto;
+    bottom: 98%;
+    border: none;
+}
+.drop-up li{
+	background-color: #5aac56;
+	padding: 4px;
+}
+.dropdown-menu{
+	padding: 0;
+}
 @media screen and (max-width: 991px){
 	#step-info{
 		margin-left: 0;
@@ -223,6 +244,9 @@ li a:hover{
 	}
 	.overlay{
 		position: fixed;
+	}
+	#flow-chart-area{
+		margin-bottom: 25%;
 	}
 }
 @media screen and (max-width: 767px){

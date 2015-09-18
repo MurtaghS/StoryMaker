@@ -1,6 +1,9 @@
 <?php
 
-set_include_path('./php-includes');
+set_include_path('./php-includes' . PATH_SEPARATOR . './functions');
+
+// Functions
+require_once 'show-ideas.fn.php';
 
 // Includes
 require_once 'connect.inc.php';

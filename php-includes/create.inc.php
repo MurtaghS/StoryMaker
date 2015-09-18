@@ -1,4 +1,5 @@
 <?php
+
 echo "<div class='row hidden' id='preview-row'>";
 	echo "<div class='preview-title'></p></div>";
 	echo "<div id='preview-left' class='col-sm-12 col-md-6'>";

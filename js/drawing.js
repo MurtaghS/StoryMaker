@@ -166,6 +166,13 @@ $(function(){
 		}
 	});
 
+	$('.drop-up li:even').css('background-color', '#8dcf8a');
+	$('.drop-up li').mouseover(function(){
+		$(this).css('border', '1px solid black');})
+			.mouseout(function(){
+			$(this).css('border', 'none');
+	});
+
 	blankFrame();
 	initialPush();
 	changeStepText();
@@ -397,18 +404,5 @@ function flowchartUpdate(){
 //Canvas images already get stored at base64
 function uploadToDB()
 {
-	$dataURL = drawingArray[0].editArray[drawingArray[0].editStep];
-	$finalImg = $dataURL.replace(/^data:image\/(png|jpeg);base64,/, "");
-	$.ajax({
-        url: "ajax/post-story.ajax.php",
-        type: "POST",
-        data: {
-            'data': $finalImg
-        }, // End data
-        'beforeSend' : function() {
-        }, // End beforeSend callback
-        'success' : function(response) {
-        } // End success callback
-    }); // End AJAX
     console.log($finalImg);
 }

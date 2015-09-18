@@ -1,14 +1,43 @@
-        </div>
-        
-        <div class="navbar navbar-fixed-bottom hidden">
+    </div>
+        <?php
+            $ideaList = showIdeas();
+        ?>
+        <nav class="navbar navbar-default navbar-fixed-bottom" id="footer-navbar" role="navigation">
             <div class="container">            
-                <ul class="nav navbar-nav navbar-right top-nav-list">
-                    <li><a href="index.php?page=chat">Chat</a></li>
-                    <li><a href="index.php?page=rewards">Rewards</a></li>
-                    <li><a href="index.php?page=profile">Profile</a></li>
+                <ul class="navbar-footer navbar-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                            Ideas
+                        </button>
+                        <ul class="dropdown-menu drop-up" role="menu">
+                            <?php 
+                                echo $ideaList;
+                            ?>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                            Chat
+                        </button>
+                        <ul class="dropdown-menu drop-up" role="menu">
+                            <?php 
+                                
+                            ?>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                            Rewards
+                        </button>
+                        <ul class="dropdown-menu drop-up" role="menu">
+                            <?php 
+                                
+                            ?>
+                        </ul>
+                    </div>
                 </ul>
             </div>
-        </div>
+        </nav>
         
     </body>
 </html>

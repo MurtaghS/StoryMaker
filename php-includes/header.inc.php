@@ -3,7 +3,7 @@
         <nav class="navbar navbar-default navbar-static-top" id="main-navbar" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -11,7 +11,7 @@
                     </button>
                     <a href="index.php?page=home" class="navbar-brand">Story Maker</a>
                 </div>
-                <div class="collapse navbar-collapse" id="navbar-collapse">
+                <div class="collapse navbar-collapse" id="header-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="btn-create" href="index.php?page=create">Create</a></li>
                         <li><a class="btn-browse" href="index.php?page=browse">Browse</a></li>
