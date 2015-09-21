@@ -7,6 +7,7 @@ echo "<div class='row'>";
 			echo "<input id='input-username' type='text'></input>";
 			echo "<p>Password:</p>";
 			echo "<input id='input-password' type='password'></input>";
+			echo "<input type='submit' value='Log In!'></input>";
 		echo "</form>";
 	echo "</div>";
 echo "</div>";
