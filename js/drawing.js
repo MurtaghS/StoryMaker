@@ -8,8 +8,7 @@ var leftcounter = 0;
 var rightcounter = 1;
 
 //Object of a step in the story
-function StoryStep(description)
-{
+function StoryStep(description){
 	var descrption;
 	var editArray;
 	var editStep; 
@@ -36,14 +35,14 @@ $(function(){
 
 	//Draws when the mouse is moved if mouse is held down
     $('#canvas-story').mousemove(function(e){
-        if (mousePressed) {
+        if (mousePressed){
             Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
         }
     });
 
 	//User let go of mouse so we stop drawing
     $('#canvas-story').mouseup(function(e){
-        if (mousePressed) {
+        if (mousePressed){
             mousePressed = false;
             canvasPush();
         }
@@ -59,7 +58,7 @@ $(function(){
 	$('#brush-box').children('div').each(function(){
 		$(this).text(counter); 	//"this" is the current element in the loop
 		counter += 2;
-		});
+	});
 	
 	//Check to see what brush size was clicked and set the canvas line width to the value
 	$('.brush-size').click(function(){
@@ -135,11 +134,9 @@ $(function(){
 	});
 
 	//When the user types something, save it to the current step description text
-	$('#text-story').focusout(function()
-	{
+	$('#text-story').focusout(function(){
 		drawingArray[stepNumber].description = document.getElementById('text-story').value;
 	});
-
 
 	$(document).on('click', "div.overlay", function(){
 		$('#preview-row').addClass('hidden');
@@ -148,7 +145,7 @@ $(function(){
 		rightcounter=1;
 	});
 
-	$(document).on('click', ".btn-preview-next", function() {
+	$(document).on('click', ".btn-preview-next", function(){
 		var arraysize = drawingArray.length;
 		if (rightcounter <= arraysize){
 			leftcounter += 2;
@@ -157,7 +154,7 @@ $(function(){
 		}
 	});
 
-	$(document).on('click', ".btn-preview-prev", function() {
+	$(document).on('click', ".btn-preview-prev", function(){
 		var arraysize = drawingArray.length;
 		if (leftcounter > 0){
 			leftcounter -= 2;
@@ -166,6 +163,7 @@ $(function(){
 		}
 	});
 
+	//Customises the drop down menu to help separate the list
 	$('.drop-up li:even').css('background-color', '#8dcf8a');
 	$('.drop-up li').mouseover(function(){
 		$(this).css('border', '1px solid black');})
@@ -186,6 +184,7 @@ $(function(){
 
 });
 
+//Adds blank canvas to first step of a story so we don't have an empty canvas
 function initialPush(){
 	var step = new StoryStep(
 	document.getElementById('text-story').value
@@ -200,7 +199,7 @@ function blankFrame(){
     ctx.fillRect(0, 0, 450, 450);
 }
 
-function Draw(x, y, isDown) {
+function Draw(x, y, isDown){
     if (isDown) {
         ctx.beginPath();
 		ctx.strokeStyle = $('.color').css('background-color');
@@ -225,38 +224,30 @@ function displayStep(){
 function changeStepText(){
 	$('.step-counter').text('Step: ' + (stepNumber + 1));	//Show current step number above drawing area
 	
-	if (stepNumber == 0)
-	{
+	if (stepNumber == 0){
 		$('.btn-prev').css('visibility', 'hidden');
-	}
-	else
-	{
+	} else{
 		$('.btn-prev').css('visibility','visible')	//View/hide previous button
 	}
-	if (stepNumber == drawingArray.length - 1)
-	{
+
+	if (stepNumber == drawingArray.length - 1){
 		$('.btn-next').css('visibility', 'hidden');
-	}
-	else
-	{
+	} else {
 		$('.btn-next').css('visibility','visible')	//View/hide next button
 	}
 }
 
 //Push canvas image onto the array and modigfy edit step value
-function canvasPush() {
+function canvasPush(){
 	drawingArray[stepNumber].editStep++;
-    if (drawingArray[stepNumber].editStep < drawingArray[stepNumber].editArray.length)
-	{ 
+    if (drawingArray[stepNumber].editStep < drawingArray[stepNumber].editArray.length){ 
 		drawingArray[stepNumber].editArray.length = drawingArray[stepNumber].editStep; 
 	}
-	
 	drawingArray[stepNumber].editArray.push(document.getElementById('canvas-story').toDataURL("image/png"));
 }
 
-function canvasUndo() {
-    if (drawingArray[stepNumber].editStep > 0) 
-	{
+function canvasUndo(){
+    if (drawingArray[stepNumber].editStep > 0) {
         drawingArray[stepNumber].editStep--;
         var canvasPic = new Image();
         canvasPic.src = drawingArray[stepNumber].editArray[drawingArray[stepNumber].editStep];
@@ -266,9 +257,8 @@ function canvasUndo() {
 }
 
 //Goes to the next image in the array and draws it to the canvas
-function canvasRedo() {
-    if (drawingArray[stepNumber].editStep < drawingArray[stepNumber].editArray.length-1) //Only redo if we are not at the end of the algorithm
-	{
+function canvasRedo(){
+    if (drawingArray[stepNumber].editStep < drawingArray[stepNumber].editArray.length-1){ //Only redo if we are not at the end of the algorithm{
         drawingArray[stepNumber].editStep++;	//Look at next edit image
         var canvasPic = new Image();
         canvasPic.src = drawingArray[stepNumber].editArray[drawingArray[stepNumber].editStep];
@@ -312,44 +302,34 @@ function updatePreview(){
 	
 	$('.preview-title p').text(title);
 
-	if (leftcounter == drawingArray.length)	//Left counter is the end so display the end image
-	{
+	if (leftcounter == drawingArray.length){	//Left counter is the end so display the end image
 		leftimage.src = endimage;
 		leftimage.onload = function(){ctxleft.drawImage(leftimage, 0, 0);}
-	}
-	else
-	{
+	} else{
 		leftimage.src = drawingArray[leftcounter].editArray[drawingArray[leftcounter].editStep];	//Load last edit made of this step
 		leftimage.onload = function () { ctxleft.drawImage(leftimage, 0, 0); }
 		lefttext = drawingArray[leftcounter].description;
 		$('.preview-left-text').text(lefttext);	//Adjust text
 	}
-	if (leftcounter == 0)	//Hide previous button if at the start of the algorithm
-	{
+	if (leftcounter == 0){	//Hide previous button if at the start of the algorithm
 		$('.btn-preview-prev').css('visibility', 'hidden');
-	}
-	else
-	{
+	} else{
 		$('.btn-preview-prev').css('visibility', 'visible');
 	}
 	
-	if (rightcounter == drawingArray.length)	//At the end so show the the end image
-	{
+	if (rightcounter == drawingArray.length){	//At the end so show the the end image
 		$('#preview-right').show();
 		rightimage.src = endimage;
 		rightimage.onload = function () { ctxright.drawImage(rightimage, 0, 0); }
 		$('.btn-preview-next').css('visibility', 'hidden');
-	}
-	else if (rightcounter < drawingArray.length)
-	{
+	} else if (rightcounter < drawingArray.length) {
 		$('#preview-right').show();
 		rightimage.src = drawingArray[rightcounter].editArray[drawingArray[rightcounter].editStep];
 		rightimage.onload = function () { ctxright.drawImage(rightimage, 0, 0); }
 		righttext = drawingArray[rightcounter].description;
 		$('.preview-right-text').text(righttext);
 		$('.btn-preview-next').css('visibility', 'visible');
-	}
-	else{
+	} else{
 		$('#preview-right').hide();
 	}
 }
@@ -366,8 +346,7 @@ function updateChart(){
 
 //Loop through algorithm array and add the divs back to the flowchart area after one is deleted
 function refreshChart(){
-	for (i=0; i<drawingArray.length; i++)	//Iterate through all array objects
-	{
+	for (i=0; i<drawingArray.length; i++){	//Iterate through all array objects
 		$('<div></div>')
 			.text('Step ' + (i + 1))
 			.appendTo('#flow-chart')
@@ -378,36 +357,14 @@ function refreshChart(){
 
 //Function for handling mouse overs/clicks on step boxes in the flow chart area
 function flowchartUpdate(){
-	$(document).on('click', "div.flow-step-box", function() 
-	{
+	$(document).on('click', "div.flow-step-box", function(){
 		stepNumber = $(this).index();	//We can use the index value as no other child elements of the flow chart area exist
 		displayStep();
 		changeStepText();
 	});
-	
-	//Block of code that displays the preview of a step in the algorithm
-	$(document).on('mousemove', "div.flow-step-box", function(e) 
-	{
-		var eleft  = e.clientX + 10  + "px";
-		var etop  = e.clientY + 10  + "px";	//Current mouse position with offset
-		var index = $(this).index();
-   //      $('.steppreview')
-			// .css(
-			// {
-			// 	top: etop, 
-			// 	left: eleft
-			// })
-			// .show();
-    });	
-	
-	$(document).on('mouseout', "div.flow-step-box", function(e) 
-	{
-		//$('.steppreview').hide();	//Hide step preview when we mouse out
-	});
 }
 
 //Canvas images already get stored at base64
-function uploadToDB()
-{
+function uploadToDB(){
     console.log($finalImg);
 }
